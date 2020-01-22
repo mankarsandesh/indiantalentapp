@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-navbar color="myColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Cart</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+
+      <span *ngIf="status == false">
+        <span class="notifyerror" >
+            <h1 class="notify" style="padding-top: 50%;"><ion-icon name="alert"></ion-icon></h1>
+            <h3 text-center>Your Cart is empty!</h3>
+            <P style="color: #736d6d;">Add Items to it Now</P>
+            <p style="text-align: center;"><button class="primary" (click)="home()">SHOP NOW</button></p>
+        </span>
+      </span>
+      <span *ngIf="status == true">
+        <ion-card class="cartP" *ngFor="let data of product;" >          
+        
+          <ion-grid >
+              <ion-row > 
+                <ion-col col-3>
+                    <img src="https://ebook.indiantalent.org/images/products/{{data.product_image}}" alt="">
+                </ion-col>
+                <ion-col col-9>                   
+                        <p style="font-size:16px;">{{data.product_name}}</p>
+                            <p>Rs.{{data.product_price}}  X {{data.quntity}} Quantity =  <span style="font-size:20px;">Rs.{{data.quntity * data.product_price}}</span></p>    
+                        <p float-right (click)="deleteItem(data.cartID)"> <button class="removeB"  > <ion-icon name="trash" ></ion-icon></button> </p>     
+                </ion-col>
+              </ion-row > 
+            </ion-grid>
+         
+        </ion-card>
+
+        <ion-card >  
+          <h3 >Price Details </h3>
+            <div>
+                <ion-grid>
+                    <ion-row >                
+                      <ion-col>
+                          <p>Price </p>
+                          <p *ngIf="TotalQuntity  < 9">Delivery Charges</p> 
+                          <p style="font-weight: 800;">Amount Payable</p>
+                      </ion-col>
+                      <ion-col>
+                              <p>Rs.{{sumTotal}}</p>
+                              <p *ngIf="TotalQuntity  < 9">Rs.40</p>
+                              <p *ngIf="TotalQuntity  < 9" style="font-weight: 800;">Rs.{{sumTotal + 40}}</p>
+                              <p *ngIf="TotalQuntity  >= 9" style="font-weight: 800;">Rs.{{sumTotal}}</p>
+                      </ion-col>
+                    </ion-row> 
+                  </ion-grid>
+
+            </div>
+        </ion-card>
+        </span>
+
+</ion-content>
+
+<ion-footer *ngIf="status == true" >
+    <ion-toolbar>
+        <ion-row no-padding>
+        <ion-col col-6>
+          <span>Total Price :</span>
+            <span *ngIf="TotalQuntity  < 9" style="font-size:18px;float:left;width: 100%;">Rs. {{sumTotal + 40}}</span>
+            <span *ngIf="TotalQuntity  >= 9" style="font-size:18px;float:left;width: 100%;">Rs. {{sumTotal}}</span>
+            
+        </ion-col>
+        
+        <ion-col col-6>
+            <button  class="paybutton" (click)="payment(product,TotalQuntity)"> &nbsp;CONTINUE</button>
+        </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

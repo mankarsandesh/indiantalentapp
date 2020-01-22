@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar color="myColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Become A Coordinator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+        <div class="form" >
+            <form #pass="ngForm">
+          <ion-item [class.has-error]="name.invalid" [class.has-success]="name.valid">
+            <ion-label floating>Your name </ion-label>
+            <ion-input type="text"  class="form-control" [(ngModel)]="becomecoordinator.name" pattern="[A-Z a-z]{1,32}" name="name" #name="ngModel" value="" required></ion-input>
+          </ion-item>
+          <p *ngIf="name.errors?.required && name.touched">Your Name is required..!</p>
+          <p *ngIf="name.errors?.pattern && name.touched">Your Name should contain only characters..!</p>
+          
+          <ion-item [class.has-error]="email.invalid" [class.has-success]="email.valid">
+            <ion-label floating>E-Mail ID </ion-label>
+            <ion-input type="text"  class="form-control" [(ngModel)]="becomecoordinator.email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" name="email" #email="ngModel" value="" required ></ion-input>
+           </ion-item>
+           <p *ngIf="email.errors?.required && email.touched">E-Mail ID is required..!</p>
+            <p *ngIf="email.errors?.pattern">Enter a valid Email..!</p>
+
+           <ion-item [class.has-error]="mobile.invalid" [class.has-success]="mobile.valid">
+            <ion-label floating>Contact Number</ion-label>
+            <ion-input type="text" class="form-control" [(ngModel)]="becomecoordinator.mobile" minlength="10" maxlength="10" pattern="^[0-9]{10}$" name="mobile" #mobile="ngModel" value="" required ></ion-input>
+           </ion-item>
+           <p *ngIf="mobile.errors?.required && mobile.touched">Contact Number is required..!</p>
+           <p *ngIf="mobile.errors?.pattern && mobile.touched">Enter Valid Mobile no...!</p>
+
+           <ion-item [class.has-error]="type.invalid" [class.has-success]="type.valid">
+            <ion-label floating>Profession  </ion-label>
+            <ion-select class="form-control" [(ngModel)]="becomecoordinator.type" #type="ngModel" interface="popover"  name="type" required>
+              <ion-option value="teacher" checked="true">Teacher</ion-option>
+              <ion-option value="student">Student</ion-option>
+            </ion-select>
+           </ion-item>
+           <p *ngIf="type.errors?.required && type.touched">Type is required..!</p>
+
+           <ion-item [class.has-error]="pincode.invalid" [class.has-success]="pincode.valid">
+            <ion-label floating>Pincode  </ion-label>
+            <ion-input type="text" class="form-control" [(ngModel)]="becomecoordinator.pincode" pattern="^[1-9][0-9]{5}$" name="pincode" #pincode="ngModel" value="" required></ion-input>
+           </ion-item>
+           <p *ngIf="pincode.errors?.required && pincode.touched">Pincode is required..!</p> 
+            <p *ngIf="pincode.errors?.pattern && pincode.touched">Enter Valid Pincode..!</p>
+
+           <ion-item [class.has-error]="address.invalid" [class.has-success]="address.valid">
+            <ion-label floating> Address  </ion-label>
+            <ion-input type="text" class="form-control" [(ngModel)]="becomecoordinator.address" name="address" #address="ngModel" value="" required ></ion-input>
+           </ion-item>
+           <p *ngIf="address.errors?.required && address.touched"> Address is required..!</p>
+           <!-- <p *ngIf="address.errors?.pattern && address.touched"> Address should contain only characters..!</p> -->
+
+
+           <ion-item [class.has-error]="city.invalid" [class.has-success]="city.valid">
+            <ion-label floating> City  </ion-label>
+            <ion-input type="text"  class="form-control" [(ngModel)]="becomecoordinator.city" pattern="[A-Z a-z]{1,32}" name="city" #city="ngModel" value="" required ></ion-input>
+           </ion-item>
+           <p *ngIf="city.errors?.required && city.touched">City is required..!</p>
+           <p *ngIf="city.errors?.pattern && city.touched">City should contain only characters..!</p>
+
+           <ion-item [class.has-error]="taluka.invalid" [class.has-success]="taluka.valid">
+            <ion-label floating>Taluka </ion-label>
+            <ion-input type="text"  class="form-control" [(ngModel)]="becomecoordinator.taluka" pattern="[A-Z a-z]{1,32}" name="taluka" #taluka="ngModel" value="" required ></ion-input>
+           </ion-item>
+           <p *ngIf="taluka.errors?.required && taluka.touched">Taluka is required..!</p>
+           <p *ngIf="taluka.errors?.pattern && taluka.touched">Taluka should contain only characters..!</p>
+
+           <ion-item [class.has-error]="state.invalid" [class.has-success]="state.valid">
+            <ion-label floating>State  </ion-label>
+            <ion-input type="text" class="form-control" [(ngModel)]="becomecoordinator.state" pattern="[A-Z a-z]{1,32}" name="state" #state="ngModel" value="" required ></ion-input>
+           </ion-item>
+           <p *ngIf="state.errors?.required && state.touched">State is required..!</p>
+           <p *ngIf="state.errors?.pattern && state.touched">State should contain only characters..!</p>
+          <br/>
+      
+         
+          <ion-grid>
+            <ion-row>               
+              <button ion-button color="myColor" full (click)="errors()" [class.hide]="pass.valid">Submit</button>
+              <button ion-button color="myColor" full (click)="coordinator(pass)" [class.hide]="pass.invalid" >Submit</button>
+            </ion-row>
+          </ion-grid>
+       </form>
+        </div>  
+      
+      
+  </ion-content>

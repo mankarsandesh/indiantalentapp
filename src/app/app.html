@@ -1,17 +1,39 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
+  <ion-header style="padding: 12px;">
+    <ion-toolbar  >
+      <!-- <img src="../assets/imgs/logoNew.png" width="50px"> <br/> -->
+      <img src="https://www.indiantalent.org/images/logoNew1.png" >
+      <!-- <h3>Indian Talent Olympiad</h3> -->
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
+    <!-- <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+          <ion-icon name={{p.logo}}></ion-icon>   {{p.title}}
       </button>
-    </ion-list>
+    </ion-list> -->
+
+    <ion-list>
+        <ion-item ion-item *ngFor="let p of pages"  (click)="openPage(p)">
+          <ion-row>
+            <ion-col class="menu-name">
+              <span>
+                  <ion-icon name={{p.logo}}></ion-icon>   {{p.title}}
+              </span>
+           
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+
+
   </ion-content>
+  <ion-footer>
+    <ion-item>
+        <button ion-button color="myColor" full><ion-icon name="call"></ion-icon>&nbsp; 1800-266-9192</button>
+    </ion-item>
+  </ion-footer>
 
 </ion-menu>
 

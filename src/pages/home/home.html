@@ -1,18 +1,122 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
+  <ion-navbar color="myColor" [hideBackButton]="dis">
+    <button ion-button menuToggle >
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title> Indian Talent Olympiad</ion-title>
+    <ion-buttons end id="notification-button" float-right end>
+      <button float-right ion-button icon-only (click)="news()">
+          <ion-icon name="notifications">
+              <ion-badge id="notifications-badge" color="danger" [class.hide]="notify">2
+              </ion-badge>
+          </ion-icon>
+      </button>
+  </ion-buttons>  
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content padding text-center>
+  <h2>Welcome to Indian Talent</h2>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <button ion-button icon-start (click)="schoolLogin()" >
+    <ion-icon name="home"></ion-icon>
+    School Login
+  </button>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <button ion-button icon-start (click)="inviteschool()">
+    <ion-icon name="home"></ion-icon>
+    Refer School
+  </button>
+
+  <button ion-button icon-start (click)="bcoordintor()">  
+    Become Coordinator
+  </button>
+
+  <button ion-button icon-start (click)="sudentResult()">   
+    Student Login
+  </button>
+
+ <p style="color: red;text-align: center;font-size: 17px;">Fill School Registration Form from desktop only.</p>
+  <ion-slides autoplay="3000" loop="true" speed="500">
+      <ion-slide>
+          <img src="https://www.indiantalent.org/upload/slider/app/1.jpg" width="100%">
+      </ion-slide>
+      <ion-slide>
+          <img src="https://www.indiantalent.org/upload/slider/app/2.jpg" width="100%">
+      </ion-slide>
+      <ion-slide>
+          <img src="https://www.indiantalent.org/upload/slider/app/3.jpg" width="100%">
+      </ion-slide>
+    </ion-slides>
+    <!-- <p>Indian Talent was established in 2012 by leading academician & scientists of the country, with the objectives of identifying and 
+        nurturing student talent leading to improved academic performance.. It helps assess the knowledge, level of understanding, and reasoning ability of students (class I to class X) across India.
+      </p> -->
+      <ion-card >     
+        <ion-card-header  >
+            <ion-icon name="flag"></ion-icon> <span > 31,573 </span> <span >+ Schools</span>
+        </ion-card-header>  
+    </ion-card>
+    <ion-card >     
+        <ion-card-header>
+            <ion-icon name="flag"></ion-icon> <span >1 crore</span> <span >+ Students</span>
+        </ion-card-header>  
+    </ion-card>
+    <ion-card >     
+        <ion-card-header>
+            <ion-icon name="flag"></ion-icon> <span >4,00,000</span><span >+ Class Toppers</span>  <span style="color:#0664f7;font-size:12px;"> (Every Year)</span>
+        </ion-card-header>  
+    </ion-card>
+    <ion-card >     
+        <ion-card-header>
+            <ion-icon name="flag"></ion-icon> <span >7000</span> <span >+ Scholarship Winners</span> <span style="color:#0664f7;font-size:12px;"> (Every Year)</span>
+        </ion-card-header>  
+    </ion-card>
+    <br>
+  <h3> Indian Talent Olympiad Exams</h3>
+     <div class="subject">
+      <ion-card class="one">
+          <ion-icon name="md-book"></ion-icon>
+          <p>National Science Indian Talent Olympiad <br> (NSITO)</p>
+      </ion-card>  
+  
+        <ion-card class="two">
+            <ion-icon name="md-book"></ion-icon>
+            <p>National Mathematics Indian Talent Olympiad <br>(NMITO)</p>
+        </ion-card>  
+   
+      <ion-card class="three">
+          <ion-icon  name="md-book"></ion-icon>
+          <p>National English Indian Talent Olympiad <br> (NEITO)</p>
+      </ion-card>  
+    
+        <ion-card  class="four">
+            <ion-icon name="md-book"></ion-icon>
+            <p>National Knowledge Indian Talent Olympiad <br> (NKITO)</p>
+        </ion-card>  
+    
+      <ion-card  class="five">
+          <ion-icon name="md-book"></ion-icon>
+          <p>National  Computer Indian Talent Olympiad <br> (NCITO)</p>
+      </ion-card>  
+ 
+        <ion-card  class="six">
+            <ion-icon name="md-book"></ion-icon>
+            <p>National Art Indian Talent Olympiad <br> (NAITO)</p>
+        </ion-card>  
+      
+    <ion-card  class="seven">
+        <ion-icon name="md-book"></ion-icon>
+        <p>National Essay Indian Talent Olympiad  <br> (NEITO)</p>
+    </ion-card>  
+    
+  <ion-card  class="eight">
+      <ion-icon name="md-book"></ion-icon>
+      <p>National Social Indian Talent Olympiad <br> (NSOITO)</p>
+  </ion-card>  
+    </div>
+    
+<div class="footer" padding>
+  Copyright &copy; 2019 Indian Talent Olympaid<br>
+  Version {{appversion}}
+</div>
 </ion-content>

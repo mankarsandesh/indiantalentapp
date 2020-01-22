@@ -1,0 +1,186 @@
+<ion-header>
+  <ion-navbar color="myColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ebook Register</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="form">
+    <form [formGroup]="userForm">
+      <div class="form-group">
+        <ion-item >
+          <ion-label floating>
+            <ion-icon name="person" item-start class="text-primary"></ion-icon>First Name
+          </ion-label>
+          <ion-input type="text" class="form-control"  formControlName="firstName" name="firstName" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['firstName'].hasError('required') && userForm.controls['firstName'].touched">First Name
+          is required.</div>
+        <div class="errmsg" *ngIf="userForm.controls['firstName'].hasError('pattern') && userForm.controls['firstName'].touched">First Name
+          should contain only characters.</div>
+        <div class="errmsg" *ngIf="userForm.controls['firstName'].hasError('maxlength') && userForm.controls['firstName'].touched">First Name
+          should not be more than 15 characters.</div>
+        <div class="errmsg" *ngIf="userForm.controls['firstName'].hasError('minlength') && userForm.controls['firstName'].touched">First Name
+          should not be less than 2 characters.</div>
+       
+      </div>
+
+      <div class="form-group">
+        <ion-item >
+          <ion-label floating>
+            <ion-icon name="person" item-start class="text-primary"></ion-icon>Last Name
+          </ion-label>
+          <ion-input type="text" class="form-control"   formControlName="lastName" name="lastName" pattern="[A-Za-z]{1,32}"
+            minlength="2" maxlength="15" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['lastName'].hasError('required') && userForm.controls['lastName'].touched">Last Name
+          is required.</div>
+        <div class="errmsg" *ngIf="userForm.controls['lastName'].hasError('pattern') && userForm.controls['lastName'].touched">Last Name
+          should contain only characters.</div>
+        <div class="errmsg" *ngIf="userForm.controls['lastName'].hasError('maxlength') && userForm.controls['lastName'].touched">Last Name
+          should not be more than 15 characters.</div>
+        <div class="errmsg" *ngIf="userForm.controls['lastName'].hasError('minlength') && userForm.controls['lastName'].touched">Last Name
+          should not be less than 2 characters.</div>       
+      </div>
+
+      <div class="form-group">
+        <ion-item >
+          <ion-label floating>
+            <ion-icon name="call" item-start class="text-primary"></ion-icon>Mobile Number
+          </ion-label>
+          <ion-input type="number" class="form-control" formControlName="mobile" minlength="10" maxlength="10" pattern="^[0-9]{10}$"
+            name="mobile" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['mobile'].hasError('required') && userForm.controls['mobile'].touched">Mobile Number
+          required.</div>
+        <div class="errmsg" *ngIf="userForm.controls['mobile'].hasError('pattern') && userForm.controls['mobile'].touched">Enter Valid
+          Mobile Number</div>
+
+
+      </div>
+
+
+      
+      <div class="form-group">
+        <ion-item >
+          <ion-label floating>
+            <ion-icon name="mail" item-start class="text-primary"></ion-icon>Email Id
+          </ion-label>
+          <ion-input type="email" class="form-control" formControlName="email"  pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+            name="email" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['email'].hasError('required') && userForm.controls['email'].touched">Email Id
+          required.</div>
+        <div class="errmsg" *ngIf="userForm.controls['email'].hasError('pattern') && userForm.controls['email'].touched">Enter a valid
+          Email.</div>
+        
+      </div>
+
+      <div class="form-group">
+        <ion-item>
+          <ion-label floating>
+            <ion-icon name="lock" item-start class="text-primary"></ion-icon>Password
+          </ion-label>
+          <ion-input type="password" class="form-control"  formControlName="password" name="password" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['password'].hasError('required') && userForm.controls['password'].touched">Password
+          is required.</div>
+        <div class="errmsg" *ngIf="userForm.controls['password'].hasError('minlength') && userForm.controls['password'].touched">Password
+          should be more than 4 character</div>
+        <div class="errmsg" *ngIf="userForm.controls['password'].hasError('maxlength') && userForm.controls['password'].touched">Password
+          should be less than 15 character</div>
+      </div>
+
+      <div class="form-group">
+        <ion-item>
+          <ion-label floating>
+            <ion-icon name="lock" item-start class="text-primary"></ion-icon>Re-Enter Password
+          </ion-label>
+          <ion-input type="password" class="form-control" formControlName="repPassword"  name="repPassword" #spy
+            required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls.repPassword.touched && userForm.hasError('mismatchedPasswords') && userForm.controls.password.valid">
+          Password does not match.</div>
+
+      </div>
+
+
+      
+      <div class="form-group">
+        <ion-item >
+          <ion-label floating>
+            <ion-icon name="person" item-start class="text-primary"></ion-icon>State
+          </ion-label>
+          <ion-input type="text" class="form-control" formControlName="state"  name="state" pattern="[A-Za-z]{1,32}"   minlength="2" maxlength="15" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['state'].hasError('required') && userForm.controls['state'].touched">State
+          is required.</div>
+        <div class="errmsg" *ngIf="userForm.controls['state'].hasError('minlength') && userForm.controls['state'].touched">State
+          should be more than 4 character</div>
+        <div class="errmsg" *ngIf="userForm.controls['state'].hasError('maxlength') && userForm.controls['state'].touched">State
+          should be less than 15 character</div>
+     
+      </div>
+
+
+      <div class="form-group">
+        <ion-item >
+          <ion-label floating>
+            <ion-icon name="person" item-start class="text-primary"></ion-icon>City
+          </ion-label>
+          <ion-input type="text" class="form-control"  formControlName="city"  name="city" pattern="[A-Za-z]{1,32}"
+            minlength="2" maxlength="15" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['city'].hasError('required') && userForm.controls['city'].touched">City
+          is required.</div>
+        <div class="errmsg" *ngIf="userForm.controls['city'].hasError('minlength') && userForm.controls['city'].touched">City
+          should be more than 4 character</div>
+        <div class="errmsg" *ngIf="userForm.controls['city'].hasError('maxlength') && userForm.controls['city'].touched">City
+          should be less than 15 character</div>
+     
+      </div>
+
+
+      <div class="form-group">
+        <ion-item >
+          <ion-label floating>
+            <ion-icon name="person" item-start class="text-primary"></ion-icon>Pincode
+          </ion-label>
+          <ion-input type="text" class="form-control"  formControlName="pincode" name="pincode" 
+            minlength="2" maxlength="15" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['pincode'].hasError('required') && userForm.controls['pincode'].touched">Pincode
+          is required.</div>
+          <div class="errmsg" *ngIf="userForm.controls['pincode'].hasError('pattern') && userForm.controls['pincode'].touched">Enter Valid
+            Pincode.</div>
+
+      </div>
+
+
+      <div class="form-group">
+        <ion-item >
+          <ion-label floating>
+            <ion-icon name="person" item-start class="text-primary"></ion-icon>Shipping Address
+          </ion-label>
+          <ion-input type="text" class="form-control"  formControlName="address" name="address" pattern="[A-Za-z]{1,32}"  minlength="2" maxlength="500" required></ion-input>
+        </ion-item>
+        <div class="errmsg" *ngIf="userForm.controls['address'].hasError('required') && userForm.controls['address'].touched">Address
+          is required.</div>
+        <div class="errmsg" *ngIf="userForm.controls['address'].hasError('minlength') && userForm.controls['address'].touched">Address
+          should be more than 4 character</div>
+        <div class="errmsg" *ngIf="userForm.controls['address'].hasError('maxlength') && userForm.controls['address'].touched">Address
+          should be less than 15 character</div>
+     
+      </div>
+      
+   
+      <!-- <button ion-button color="danger" full padding [class.hide]="userForm.valid" (click)="error(userForm.value)">Register</button> -->
+      <div padding-bottom>
+        <button ion-button color="danger" full padding (click)="userregister(userForm.value)" [disabled]="userForm.invalid">Register</button>
+      </div>
+    </form>
+  </div>
+</ion-content>

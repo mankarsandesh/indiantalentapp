@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar color="myColor">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>School Login</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+<ion-content padding text-center>
+    <div class="form">
+      <form #pass="ngForm" (ngSubmit)="login(pass)">
+        <div class="logo" style="margin: 60px 0px;">
+          <img src="https://www.indiantalent.org/images/logoNew1.png" >
+        </div>  
+        <ion-item [class.has-error]="loginId.invalid" [class.has-success]="loginId.valid">
+          <ion-label floating>School ID </ion-label>
+          <ion-input type="text" class="form-control" [(ngModel)]="LoginuserData.loginId" name="loginId" #loginId="ngModel" value="" required></ion-input>
+        </ion-item>
+        <p *ngIf="loginId.errors?.required && loginId.touched">School Id is required..!</p>
+
+        <ion-item [class.has-error]="password.invalid" [class.has-success]="password.valid">
+          <ion-label floating>Password </ion-label>
+          <ion-input class="form-control" type="password" [(ngModel)]="LoginuserData.password" #password="ngModel" name="password" value="" required></ion-input>
+        </ion-item>
+        <p *ngIf="password.errors?.required && password.touched">Password is required..!</p>
+
+        <br/>
+        <ion-grid>
+          <ion-row>               
+            <button ion-button color="myColor" full >Login</button>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </div>  
+</ion-content>

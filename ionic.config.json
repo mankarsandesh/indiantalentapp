@@ -1,5 +1,7 @@
 {
   "name": "indiantalent",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

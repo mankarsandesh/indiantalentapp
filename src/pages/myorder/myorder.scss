@@ -1,0 +1,22 @@
+page-myorder {
+    ion-card {
+        width:100%;padding:10px;margin:0;
+    }
+    ion-card button{
+        color: #FFF;padding: 10px 20px;background-color: #2868cc;
+        border-radius: 5px;
+    }
+    ion-card span{
+        font-size: 24px;height:60px;
+    }
+    ion-card p{
+        margin:-bottom 16px;width:100%;
+    }
+    .notifyerror{
+        padding-top: 40% !important;
+        text-align: center;
+        font-size: 100px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+}

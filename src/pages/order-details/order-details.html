@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color="myColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Order Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+        <ion-card class="cartP" *ngFor="let data of product;" >          
+        
+          <ion-grid>
+              <ion-row > 
+                <ion-col col-3>
+                    <img src="https://ebook.indiantalent.org/images/products/{{data.product_image}}" alt="">
+                </ion-col>
+                <ion-col col-9>                   
+                        <p style="font-size:16px;">{{data.product_name}}</p>
+                            <p>Rs.{{data.product_price}}  X {{data.quantity}} Quntity =  <span style="font-size:20px;">Rs.{{data.quantity * data.price}}</span></p>    
+                        <!-- <p float-right (click)="deleteItem(data.cartID)"> <button class="removeB"  > <ion-icon name="trash" ></ion-icon></button> </p>      -->
+                </ion-col>
+              </ion-row > 
+            </ion-grid>
+         
+        </ion-card>
+
+        <ion-card>  
+          <h3>Price Details</h3>
+            <div>
+                <ion-grid>
+                    <ion-row >                
+                      <ion-col>
+                          <p>Price ( {{productLength}} Items)</p>
+                          <p *ngIf="dilvry == false">Delivery Charges</p> 
+                          <p style="font-weight: 800;">Amount Payable</p>
+                          <p style="font-weight: 800;">Payment Status</p>
+                      </ion-col>
+                      <ion-col>
+                              <p>Rs.{{sumTotal}}</p>
+                              <p *ngIf="dilvry == false">Rs.40</p>
+                              <p style="font-weight: 800;">Rs.{{sumTotal}}</p>
+                              <p><span style="color:green;font: weight 800;"> <ion-icon name="checkmark-circle"></ion-icon> Paid</span></p>
+                      </ion-col>
+                    </ion-row> 
+                  </ion-grid>
+            </div>
+        </ion-card>
+        <ion-card>  
+
+        </ion-card>
+
+
+
+</ion-content>
+
+

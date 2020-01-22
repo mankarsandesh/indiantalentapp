@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-navbar color="myColor" [hideBackButton]="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ebook Store</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content  class="dark">
+  <!-- <ion-slides  autoplay=3000  slidesPerView=1>
+      <ion-slide >
+          <img src="https://www.indiantalent.org/upload/slider/indian_talent_exam%20Banner%20(1).jpg" alt="">
+      </ion-slide> 
+      <ion-slide >
+        <img src="https://www.indiantalent.org/upload/slider/workbooks%20Flash-Revised%20NEW%202019%20ONLY%20WORKBOOKS%20(4).jpg" alt="">
+    </ion-slide>  
+  </ion-slides> -->
+  <!-- <h4>Hello , {{firstName}}</h4>  -->
+  <ion-grid>
+        <ion-row>
+            <h4 ion-text  class="no-margin bold text-white" style="width:100%;text-align: center;">
+            Hello, {{firstName}} 
+            </h4>
+
+          <ion-col  col-6 align-self-center>
+              <!-- <h4 ion-text  class="no-margin bold text-white">
+            Hello, {{firstName}} 
+              </h4> -->
+
+          <button ion-button float-right (click)="myOrder()"><ion-icon name="cart" ></ion-icon> &nbsp;My Order</button>
+
+              
+          </ion-col>
+          <ion-col  col-6 align-self-center>
+              <button ion-button (click)="logout()"><ion-icon name="lock" ></ion-icon> &nbsp;Logout</button>
+          </ion-col>
+
+        </ion-row>
+  </ion-grid>
+
+
+
+  <ion-grid>
+      <ion-row >
+        <ion-col>
+          <ion-card class="two">
+            <ion-card-header class="header">
+              <p><ion-icon name="paper"></ion-icon> Workbooks </p>
+            </ion-card-header>         
+            <ion-card-content class="contentbox">
+              <!-- <ion-icon name="paper"></ion-icon> -->
+              <ion-item>
+                <ion-label (click)="productDetails(name2)">
+                  <span style="text-decoration: underline;">Individual Workbooks</span>
+                </ion-label>
+                <ion-icon name="lock" ></ion-icon>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                    <span style="text-decoration: underline;">Combo Workbooks</span>
+                </ion-label>
+              </ion-item>
+              <!-- <p style="color:#000; padding: 16px;"> Individual Workbooks </p>
+              <p style="color:#000;"> Combo Workbooks </p> -->
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card class="one">
+            <ion-card-header class="header2">
+              <p><ion-icon name="paper"></ion-icon>  Previous Year Question Paper Set </p>
+            </ion-card-header>   
+            <ion-card-content>
+              <ion-item>
+                <ion-label (click)="productDetails(name1)">
+                  <span style="text-decoration: underline;">Round 1 Question Paper</span>
+                </ion-label>
+                <ion-icon name="lock" ></ion-icon>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                    <span style="text-decoration: underline;">Round 2 Question Paper</span>
+                </ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>
+                  <span style="text-decoration: underline;">Round 3 Question Paper</span>
+                </ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>    
+                  
+          <ion-card class="three"> 
+              <ion-card-header class="header3">
+                <p><ion-icon name="paper"></ion-icon> Previous Year Question Paper Combo Pack </p>
+              </ion-card-header>                         
+            <ion-card-content>
+                <ion-item>
+                  <ion-label (click)="productDetails(name3)">
+                    <span style="text-decoration: underline;">Combo Set 1</span>
+                  </ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>
+                    <span style="text-decoration: underline;">Combo Set 2</span>
+                  </ion-label>
+                </ion-item>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>

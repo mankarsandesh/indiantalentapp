@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-navbar color="myColor">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>EBook Store</ion-title>
+      <ion-buttons end id="notification-button" float-right  end  (click)="eBookCart()">
+          <button ion-button icon-only >
+              <ion-icon name="cart">       
+                  <ion-badge style="color:#FFF;" [class.hide]="notify">{{cartTotal}}
+                    </ion-badge>
+          
+              </ion-icon>
+          </button>
+      </ion-buttons>
+
+      <!-- <span float-right><ion-icon name="cart"></ion-icon></span> -->
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content >
+ <h4>{{CNAME}}</h4> 
+ <!-- <p style="text-align: center; font-size: 18px;">
+   <span>{{class1}}</span>
+   <span>{{subject}}</span>
+  </p> -->
+ <ion-grid>
+    <ion-row >
+      <ion-col>
+        <ion-card class="contentcard" *ngFor="let data of product;" >          
+          <img class="displayimg" src="https://ebook.indiantalent.org/images/products/{{data.product_image}}" alt="">
+          <ion-card-content>
+          <p>{{data.product_name}}</p>
+          <span>Rs. {{data.product_price}}</span><br>
+          <button ion-button  (click)="addCart(data.id)"><ion-icon name="cart" ></ion-icon> &nbsp;Add Cart</button>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+
+    </ion-row>
+</ion-grid>
+</ion-content>
+<ion-footer [class.hide]="FooterS">
+    <ion-toolbar>
+        <ion-row no-padding>
+        <ion-col col-8>
+            <!-- <ion-label floating>Subject </ion-label> -->
+            <ion-select   [(ngModel)]="subject" interface="action-sheet" (ionChange)="result(name,subject,class1)"  >
+              <ion-option value="" selected>Subject</ion-option>
+              <ion-option *ngFor="let data of subjectData;" value="{{data.id}}" >{{data.name}}</ion-option>
+            </ion-select>
+        </ion-col>
+        
+        <ion-col col-4>
+            <!-- <ion-label floating>Class </ion-label> -->
+              <ion-select   [(ngModel)]="class1" interface="action-sheet" (ionChange)="result(name,subject,class1)" >
+              <ion-option value="" selected>Class</ion-option>
+              <ion-option value="1" >Class 1</ion-option>
+              <ion-option value="2" >Class 2</ion-option>
+              <ion-option value="3" >Class 3</ion-option>
+              <ion-option value="4" >Class 4</ion-option>
+              <ion-option value="5" >Class 5</ion-option>
+              <ion-option value="6" >Class 6</ion-option>
+              <ion-option value="7" >Class 7</ion-option>
+              <ion-option value="8" >Class 8</ion-option>
+              <ion-option value="9" >Class 9</ion-option>
+              <ion-option value="10" >Class 10</ion-option>
+              
+            </ion-select>
+        </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="myColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Order</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding> 
+              <span *ngIf="status == false">
+                <span class="notifyerror" >
+                    <h1 class="notify" style="padding-top: 50%;"><ion-icon name="alert"></ion-icon></h1>
+                    <h3 text-center>There are no Order.</h3>
+                </span>
+              </span>
+              <span *ngFor="let data of order;">
+                <ion-card (click)="orderviewDetails(data.order_id)" >        
+                    <button float-left >Order ID : &nbsp;#{{data.order_id}}</button>
+                    <span float-right >₹ {{data.price}}</span> 
+                    <div float-left>
+                      <div float-left style="width:60%;">
+                          <p float-left >Order Date : {{data.order_date}}</p>
+                          <p float-left >Workbooks, Question Paper</p>
+                      </div>
+                      <div  float-right style="width:40%;">
+                          <p float-left style="text-align: right;color:red;" *ngIf="data.payment_status == 'Unpaid'"> {{data.payment_status}} </p>
+                          <p float-left style="text-align: right;color:green;" *ngIf="data.payment_status == 'Paid'" > {{data.payment_status}} </p>
+                      </div>
+                    </div>                    
+                </ion-card>
+              </span>                    
+   
+
+</ion-content>

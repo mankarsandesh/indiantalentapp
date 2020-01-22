@@ -1,0 +1,33 @@
+page-ebook-cart {
+    ion-card{
+        padding: 6px 10px;
+    }
+    .cartP img{
+        width: 70px;
+        float: left;
+
+    }
+    ion-card-content{
+        float: left;
+    }
+    
+}
+.paybutton{
+    background-color:#e88d2f;width: 100%;color:#FFF;font-weight:800;height:40px;
+}
+.removeB{
+    color: #2868cc;
+    border-radius: 2px;
+    font-size: 18px;
+    background-color: #fff;
+}
+.notifyerror{
+    text-align: center;
+}
+.primary{
+background-color: #2868cc;
+padding: 10px 18px;
+color: #FFF;
+margin: 0 auto;
+width: 30%;
+}

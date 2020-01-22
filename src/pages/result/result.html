@@ -1,0 +1,136 @@
+<ion-header>
+    <ion-navbar color="myColor">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Student Result</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+<ion-content padding text-center>
+
+  <div class="form">
+    <form #pass="ngForm" (ngSubmit)="result(pass)">
+    <ion-item [class.has-error]="rollId.invalid" [class.has-success]="rollId.valid">
+      <ion-label floating>Enter Student Roll Number </ion-label>
+      <ion-input type="text" class="form-control"  [(ngModel)]="userResult.rollId" name="rollId" #rollId="ngModel" required></ion-input>
+    </ion-item>
+    <p *ngIf="rollId.errors?.required && rollId.touched">Roll Number is required..!</p>
+    <br/>
+    <ion-grid>
+      <ion-row>               
+        <button ion-button color="myColor" full>Check Result</button>
+      </ion-row>
+    </ion-grid>
+    </form>
+  </div>  
+  <br>
+  <span [class.hide]="failsts">
+    <h4>
+      No Record Found<br>
+      Student Roll Number Invalid<br>
+      Contact Your School Teacher.   
+     </h4>
+  </span>
+  <span [class.hide]="show">
+      <h2 >Round 1</h2>
+      <h4 style="color:green !important;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"  class="resultstatus">{{popup_msg}}</h4>
+  </span>
+  <br>
+
+  <table [class.hide]="show" class="responsive-table Fee-table">
+      <tbody>
+         <tr [class.hide]="show">
+         
+            <td><h5 class="infod">Student Name </h5></td>
+            <td> {{student_name}}</td>
+            
+         </tr>
+         <tr>
+           
+          <td><h5 [class.hide]="show" class="infod">Subject </h5></td>
+          <td>{{subject}}</td>
+            
+         </tr>
+         <tr>
+           
+          <td><h5 [class.hide]="show" class="infod">Class </h5></td>
+          <td>{{class}}th</td>
+           
+         </tr>
+         <tr>
+         
+          <td><h5 [class.hide]="show" class="infod">Score</h5></td>
+          <td>{{score}}%</td>
+          
+         </tr>
+        
+    
+      </tbody>
+    </table>
+
+    <br>
+    <span [class.hide]="show1">
+        <h2 >Round 2</h2>
+        <h4 style="color:green !important;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"  class="resultstatus">{{popup_msg1}}</h4>
+    </span>
+    <br>
+  
+    <table [class.hide]="show1" class="responsive-table Fee-table">
+        <tbody>
+           <tr [class.hide]="show">
+           
+              <td><h5 class="infod">Student Name </h5></td>
+              <td> {{student_name1}}</td>
+              
+           </tr>
+           <tr>
+             
+            <td><h5 [class.hide]="show" class="infod">Subject </h5></td>
+            <td>{{subject1}}</td>
+              
+           </tr>
+           <tr>
+             
+            <td><h5 [class.hide]="show" class="infod">Class </h5></td>
+            <td>{{class1}}th</td>
+             
+           </tr>
+           <tr>
+           
+            <td><h5 [class.hide]="show" class="infod">State Rank</h5></td>
+            <td>{{srank}}</td>
+            
+           </tr>
+            <tr  [class.hide]="fail">
+              <td><h5 [class.hide]="show" class="infod">Awards</h5></td>
+              <td>{{awards}}</td>
+           </tr>
+      
+        </tbody>
+      </table>
+
+
+    <br>
+
+    <div [class.hide]="show" class="note">
+      <h5 style="color:blue;">Important Notes</h5>
+      <p>1. Students who have achieved National Level Rank between 1 & 4 will get the Scholarships/ Prizes/ Awards according to the National Level.</p>
+      <p>2. Students who have achieved State Level Rank between 1 & 10, will get scholarships.</p>
+      <p>3. Students who have achieved State Level Rank between 11 & 25, will get the Excellence Medal.</p>
+      <p>4. If student has achieved any National/State Rank then the Prizes/Awards/scholarships will be sent to the respective schools in the month of June, 2019.</p>
+    </div>
+
+    <!-- <button ion-button color="myColor" full [class.hide]="show" (click)="openWithInAppBrowser3()">
+      Order Previous Year Question Papers
+    </button>
+
+    <button ion-button color="myColor" full [class.hide]="show" (click)="openWithInAppBrowser6()">
+      Order Eduezy Study App
+    </button>
+
+    <button ion-button color="myColor" full [class.hide]="show" (click)="openWithInAppBrowser5()">
+      Order Workbook
+    </button> -->
+  
+</ion-content>

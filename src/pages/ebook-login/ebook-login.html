@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="myColor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ebook Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+  <div class="form">
+    <form #pass="ngForm" (ngSubmit)="ebooklogin(pass)">
+      <div class="logo" style="margin: 60px 0px;">
+        <img height="80px" src="https://www.ebook.indiantalent.org/images/icons/logo.png" >
+      </div>  
+      
+      <ion-item [class.has-error]="loginId.invalid" [class.has-success]="loginId.valid">
+        <ion-label floating>Mobile Number</ion-label>
+        <ion-input type="text" class="form-control" [(ngModel)]="LoginuserData.loginId" name="loginId" #loginId="ngModel" value="" required></ion-input>
+      </ion-item>
+      
+      <p *ngIf="loginId.errors?.required && loginId.touched" class="error"> Mobile Number is required..!</p>
+      
+      <ion-item [class.has-error]="password.invalid" [class.has-success]="password.valid">
+        <ion-label floating>Password </ion-label>
+        <ion-input class="form-control" type="password" [(ngModel)]="LoginuserData.password" #password="ngModel" name="password" value="" required></ion-input>
+       
+      </ion-item>    
+      <p *ngIf="password.errors?.required && password.touched" class="error">Password is required..!</p>
+      <p  ion-text color="danger" style="font-size:16px;" tappable (click)="forgotpassword()" style="text-align:right;">Forgot Password!</p>      
+      
+      <ion-grid>
+        <ion-row>               
+          <button ion-button color="myColor" full >Login</button>
+        </ion-row>
+      </ion-grid>
+
+      <div text-center margin-top>
+        <span ion-text color="danger" style="font-size:16px;" tappable (click)="signup()">Register Free</span>
+        <!-- <span ion-text color="danger" style="font-size:16px;" tappable (click)="forgotpassword()">Forgot Password!</span> -->
+      </div>
+
+    </form>
+  </div>  
+</ion-content>
