@@ -31,8 +31,9 @@
     "@ionic-native/status-bar": "~4.17.0",
     "@ionic-native/toast": "^4.18.0",
     "@ionic/storage": "2.2.0",
-    "cordova-android": "^7.1.4",
-    "cordova-ios": "5.0.1",
+    "cordova-android": "^8.1.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-ios": "^5.1.1",
     "cordova-plugin-app-version": "^0.1.9",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-document-viewer": "0.9.10",
@@ -54,7 +55,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "^3.2.4",
+    "@ionic/app-scripts": "3.2.4",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project",
@@ -76,7 +77,7 @@
       }
     },
     "platforms": [
-      "android",
+      "browser",
       "ios"
     ]
   }

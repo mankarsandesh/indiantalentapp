@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.indiantalent.org" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.indiantalent.org" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Indian Talent Olympiad</name>
     <description>Indian Talent was established in 2012 by leading academician scientists of the country, with the objectives of identifying and nurturing student talent leading to improved academic performance.</description>
-    <author email="info@indiantalent.org" href="https://www.indiantalent.org">Ionic Framework Team</author>
+    <author email="info@indiantalent.org" href="https://www.indiantalent.org">Sandesh Mankar</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -102,5 +102,4 @@
     <plugin name="cordova-plugin-document-viewer" spec="0.9.10" />
     <plugin name="cordova-plugin-market" spec="1.2.0" />
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
-    <engine name="android" spec="^7.1.4" />
 </widget>
